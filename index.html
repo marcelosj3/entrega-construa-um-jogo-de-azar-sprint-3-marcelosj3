@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21 - Entrega: Construa um Jogo de Azar</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <h1 class="title">Pedra, papel e tesoura</h1>
+
+
+    <section class="option-container">
+        <label for="optionPaper"><i class="option__icon fas fa-hand-paper"></i></label>
+        <input class="option__item option__item--paper" type="radio" name="option" id="optionPaper">
+        <label for="optionRock"><i class="option__icon fas fa-hand-rock"></i></label>
+        <input class="option__item option__item--rock" type="radio" name="option" id="optionRock">
+        <label for="optionScissors"><i class="option__icon fas fa-hand-scissors"></i></label>
+        <input class="option__item option__item--scissors" type="radio" name="option" id="optionScissors">
+        <button type="submit" class="play">Jogar</button>
+    </section>
+
+    <section class="result-container">
+        <div class="result__player"><i class="option__icon fas fa-hand-paper"></i></div>
+        <div class="result__computer"><i class="option__icon fas fa-hand-rock"></i></div>
+        <div class="result__text">Você venceu!</div>
+    </section>
+
+    <section class="scoreboard">
+        <h3 class="scoreboard__player">Você: <span class="scoreboard__player--score">0</span></h3>
+        <h3 class="scoreboard__computer">Computador: <span class="scoreboard__computer--score">0</span></h3>
+    </section>
+
+</body>
+
+</html>
