@@ -124,9 +124,23 @@ body {
     grid-area: button;
 }
 
-.scoreboard {}
-.scoreboard__title {}
-.scoreboard__score {}
+.scoreboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.scoreboard__title {
+    width: 80%;
+}
+.scoreboard__name {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+.scoreboard__score {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
 
 .roung-log {}
 .roung-log__title {}
