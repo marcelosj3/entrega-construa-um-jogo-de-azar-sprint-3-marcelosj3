@@ -12,28 +12,45 @@
 
 <body>
 
-    <h1 class="title">Pedra, papel e tesoura</h1>
+    <h1 class="game__title">Pedra, papel e tesoura</h1>
+
+    <h3 class="game__round">Round <span class="round__value">0</span></h3>
 
 
     <section class="option-container">
-        <label for="optionPaper"><i class="option__icon fas fa-hand-paper"></i></label>
+        <h3 class="option__title">Selecione a sua opção!</h3>
+        <label for="optionPaper" class="option__label"><i class="option__icon fas fa-hand-paper"></i></label>
         <input class="option__item option__item--paper" type="radio" name="option" id="optionPaper">
-        <label for="optionRock"><i class="option__icon fas fa-hand-rock"></i></label>
+        <label for="optionRock" class="option__label"><i class="option__icon fas fa-hand-rock"></i></label>
         <input class="option__item option__item--rock" type="radio" name="option" id="optionRock">
-        <label for="optionScissors"><i class="option__icon fas fa-hand-scissors"></i></label>
+        <label for="optionScissors" class="option__label"><i class="option__icon fas fa-hand-scissors"></i></label>
         <input class="option__item option__item--scissors" type="radio" name="option" id="optionScissors">
         <button type="submit" class="play">Jogar</button>
     </section>
 
     <section class="result-container">
-        <div class="result__player"><i class="option__icon fas fa-hand-paper"></i></div>
-        <div class="result__computer"><i class="option__icon fas fa-hand-rock"></i></div>
+        <div class="result__player"><i class="result__icon fas fa-hand-paper"></i></div>
+        <div class="result__computer"><i class="result__icon fas fa-hand-rock"></i></div>
         <div class="result__text">Você venceu!</div>
     </section>
 
     <section class="scoreboard">
         <h3 class="scoreboard__player">Você: <span class="scoreboard__player--score">0</span></h3>
         <h3 class="scoreboard__computer">Computador: <span class="scoreboard__computer--score">0</span></h3>
+        <h3 class="scoreboard__draw">Empates: <span class="scoreboard__draw--score">0</span></h3>
+    </section>
+
+    <section class="round-log">
+        <h3 class="round-log__title">Rounds</h3>
+        <div class="round-log__container">
+            <div class="round-log__play">
+                <span class="round-log__round">2</span>
+                <h4 class="roung-log__winner">Você</h4>
+                <i class="round-log__icon-player fas fa-hand-paper"></i>
+                <span class="round-log__versus">vs</span>
+                <i class="round-log__icon-computer fas fa-hand-paper"></i>
+            </div>
+        </div>
     </section>
 
 </body>
