@@ -142,12 +142,43 @@ body {
     font-weight: bold;
 }
 
-.roung-log {}
-.roung-log__title {}
-.roung-log__container {}
-.roung-log__play {}
-.roung-log__round {}
-.roung-log__winner {}
-.roung-log__icon-player {}
-.roung-log__versus {}
-.roung-log__icon-computer {}
+.round-log {
+    max-width: 400px;
+    margin: 0 auto;
+}
+.round-log__title {}
+.round-log__container {}
+.round-log__container-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    font-weight: bold;
+}
+.round-log__round-header {
+    grid-column: 1/2;
+}
+.round-log__winner-header {
+    grid-column: 2/3;
+}
+.round-log__score-play-header {
+    grid-column: 3/6;
+}
+.round-log__play {
+    width: 100%;
+    display: grid;
+    grid-template-areas: 'roundNum winner icon-p versus icon-c';
+}
+.roung-log__round {
+    grid-area: roundNum;
+}
+.roung-log__winner {
+    grid-area: winner;
+}
+.roung-log__icon-player {
+    grid-area: icon-p;
+}
+.roung-log__versus {
+    grid-area: versus;
+}
+.roung-log__icon-computer {
+    grid-area: icon-c;
+}
