@@ -1,0 +1,110 @@
+/* VARIABLES */
+:root {}
+
+/* ANIMATIONS */
+
+@keyframes hands-down-left {
+    from {transform: translate(-100px, -100px) rotate(0)}
+    to {transform: translate(0px) rotate(90)}
+}
+
+@keyframes hands-down-right {
+    from {transform: translate(100px, -100px) rotate(0)}
+    to {transform: translate(0px) rotate(-90)}
+}
+
+/* DOCUMENT */
+
+body {
+    text-align: center;
+    font-size: 16px;
+}
+
+.game__title {}
+.game__round {position: relative;}
+.game__round::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    border-bottom: 1px solid red;
+    z-index: -2;
+}
+.game__round::after{
+    content: '';
+    position: absolute;
+    width: 110px;
+    height: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    z-index: -1;
+}
+.round__value {}
+
+.result-container {
+    overflow: hidden;
+    display: grid;
+    grid-template-areas: 'player computer'
+                         'textInput textInput';
+    justify-items: center;
+    align-items: center;
+    margin: 0 auto;
+}
+.result__play {
+    width: 150px;
+    height: 150px;
+    display: grid;
+    place-items: center;
+    animation-duration: .75s;
+}
+.result__play--player {
+    grid-area: player;
+    transform: rotate(90deg);
+}
+.result__play--player-animation {
+    animation-name: hands-down-left;
+}
+.result__play--computer {
+    grid-area: computer;
+    transform: rotate(-90deg);
+}
+.result__play--computer-animation {
+    animation-name: hands-down-right;
+}
+.result__icon {
+    font-size: 8rem;
+}
+.result__text {
+    grid-area: textInput;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.option-container {}
+.option__title {}
+.option__label {}
+.option__item {
+    display: none;
+}
+.option-container .option__item:checked + .option__label {
+    color: red;
+}
+.option__icon {}
+.option__play {}
+
+.scoreboard {}
+.scoreboard__title {}
+.scoreboard__score {}
+
+.roung-log {}
+.roung-log__title {}
+.roung-log__container {}
+.roung-log__play {}
+.roung-log__round {}
+.roung-log__winner {}
+.roung-log__icon-player {}
+.roung-log__versus {}
+.roung-log__icon-computer {}
