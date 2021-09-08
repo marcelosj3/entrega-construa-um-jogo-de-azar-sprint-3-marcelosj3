@@ -83,9 +83,36 @@ body {
     margin-top: 20px;
 }
 
-.option-container {}
-.option__title {}
-.option__label {}
+.option-container {
+    display: grid;
+    grid-template-areas: 'title title title'
+                         'paper rock scissors'
+                         'button button button';
+    justify-content: space-around;
+    align-items: center;
+}
+.option__title {
+    grid-area: title;
+    font-size: 1.3rem;
+}
+.option__label {
+    font-size: 5rem;
+    width: 100px;
+    height: 100px;
+    align-self: center;
+    display: grid;
+    place-items: center;
+}
+.option__label--paper {
+    grid-area: paper;
+}
+.option__label--rock {
+    grid-area: rock;
+}
+.option__label--scissors {
+    grid-area: scissors;
+    transform: rotate(90deg);
+}
 .option__item {
     display: none;
 }
@@ -93,7 +120,9 @@ body {
     color: red;
 }
 .option__icon {}
-.option__play {}
+.option__play {
+    grid-area: button;
+}
 
 .scoreboard {}
 .scoreboard__title {}
