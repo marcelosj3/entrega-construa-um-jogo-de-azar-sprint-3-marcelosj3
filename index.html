@@ -15,12 +15,16 @@
 
     <h1 class="game__title">Pedra, papel e tesoura</h1>
 
-    <h3 class="game__round">Round <span class="round__value">0</span></h3>
+    <h3 class="game__round">Round <span class="round__value" id="roundValue">0</span></h3>
 
     <section class="result-container">
-        <div class="result__play result__play--player"><i class="result__icon fas fa-hand-paper"></i></div>
-        <div class="result__play result__play--computer"><i class="result__icon fas fa-hand-rock"></i></div>
-        <div class="result__text">Você venceu!</div>
+        <div class="result__play result__play--player" id="resultPlayer"><i class="result__icon fas fa-hand-paper"
+                id="iconPlayer"></i>
+        </div>
+        <div class="result__play result__play--computer" id="resultComputer"><i class="result__icon fas fa-hand-rock"
+                id="iconComputer"></i>
+        </div>
+        <div class="result__text" id="resultText">Você venceu!</div>
     </section>
 
     <section class="option-container">
@@ -34,14 +38,14 @@
         <input class="option__item option__item--scissors" type="radio" name="option" id="optionScissors">
         <label for="optionScissors" class="option__label option__label--scissors"><i
                 class="option__icon fas fa-hand-scissors"></i></label>
-        <button type="submit" class="option__play">Jogar</button>
+        <button type="submit" class="option__play" id="optionPlay">Jogar</button>
     </section>
 
     <section class="scoreboard">
         <h3 class="scoreboard__title">Pontuação</h3>
-        <p class="scoreboard__name">Você: <span class="scoreboard__score">0</span></p>
-        <p class="scoreboard__name">Computador: <span class="scoreboard__score">0</span></p>
-        <p class="scoreboard__name">Empates: <span class="scoreboard__score">0</span></p>
+        <p class="scoreboard__name">Você: <span class="scoreboard__score" id="scorePlayer">0</span></p>
+        <p class="scoreboard__name">Computador: <span class="scoreboard__score" id="scoreComputer">0</span></p>
+        <p class="scoreboard__name">Empates: <span class="scoreboard__score" id="scoreDraw">0</span></p>
     </section>
 
     <section class="round-log">
@@ -51,24 +55,10 @@
             <span class="round-log__winner-header">Vencedor</span>
             <span class="round-log__score-play-header">Jogadas</span>
         </div>
-        <div class="round-log__container">
-            <div class="round-log__play">
-                <span class="round-log__round">2</span>
-                <span class="roung-log__winner">Você</span>
-                <i class="round-log__icon-player fas fa-hand-paper"></i>
-                <span class="round-log__versus">vs</span>
-                <i class="round-log__icon-computer fas fa-hand-paper"></i>
-            </div>
-            <div class="round-log__play">
-                <span class="round-log__round">2</span>
-                <span class="roung-log__winner">Você</span>
-                <i class="round-log__icon-player fas fa-hand-paper"></i>
-                <span class="round-log__versus">vs</span>
-                <i class="round-log__icon-computer fas fa-hand-paper"></i>
-            </div>
-        </div>
+        <div class="round-log__container"></div>
     </section>
 
+    <script src="scripts/index.js"></script>
 </body>
 
 </html>
