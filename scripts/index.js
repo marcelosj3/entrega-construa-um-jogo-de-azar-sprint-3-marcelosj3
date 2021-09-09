@@ -32,6 +32,7 @@ function startPlay() {
         implementPlayerPlay();
         let computerPlay = selectComputerPlay();
         let result = returnWinnerOrDraw(computerPlay, playerPlay);
+        changeIconColor(result, iconPlayPlayer, iconPlayComputer);
         changeNumbers();
         changeResultText(result);
         addRoundLog(computerPlay, playerPlay, result);
@@ -188,6 +189,7 @@ function addRoundLog(computerPlay, playerPlay, result) {
     let iconPlayer = document.createElement('i');
     let versusText = document.createElement('span');
     let iconComputer = document.createElement('i');
+    changeIconColor(result, iconPlayer, iconComputer);
     roundPlayDiv.classList.add('round-log__play');
     spanRound.classList.add('round-log__round');
     spanWinner.classList.add('round-log__winner')
@@ -252,4 +254,27 @@ function blockButton() {
 
 function unblockButton() {
     buttonPlay.removeAttribute('disabled');
+}
+
+function changeIconColor(result, iconPlayer, iconComputer) {
+    removeIconColorClass(iconPlayer);
+    removeIconColorClass(iconComputer);
+    if (result === 'player') {
+        iconPlayer.classList.add('result__icon--winner');
+        iconComputer.classList.add('result__icon--loser');
+    } else if (result === 'computer') {
+        iconPlayer.classList.add('result__icon--loser');
+        iconComputer.classList.add('result__icon--winner');
+    }
+}
+
+function removeIconColorClass(element) {
+    let iconClasses = element.classList
+    for (let i = 0; i < iconClasses.length; i++) {
+        if (iconClasses[i] === 'result__icon--loser') {
+            element.classList.remove('result__icon--loser')
+        } else if (iconClasses[i] === 'result__icon--winner') {
+            element.classList.remove('result__icon--winner');
+        }
+    }
 }
