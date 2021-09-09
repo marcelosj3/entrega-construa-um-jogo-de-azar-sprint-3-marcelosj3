@@ -35,6 +35,7 @@ function startPlay() {
         changeNumbers();
         changeResultText(result);
         addRoundLog(computerPlay, playerPlay, result);
+        blockButtonWithTime();
     } else {
 
     }
@@ -104,30 +105,34 @@ function checkWinner(computerPlay, playerPlay) {
     let winner;
     if (player === 'optionRock') {
         if (computer === 'optionScissors') {
-            playerWin++;
-            winner = 'player';
+            winner = playerWinFunc();
         } else if (computer === 'optionPaper') {
-            computerWin++;
-            winner = 'computer';
+            winner = computerWinFunc();
         }
     } if (player === 'optionScissors') {
         if (computer === 'optionPaper') {
-            playerWin++;
-            winner = 'player';
+            winner = playerWinFunc();
         } else if (computer === 'optionRock') {
-            computerWin++;
-            winner = 'computer';
+            winner = computerWinFunc();
         }
     } if (player === 'optionPaper') {
         if (computer === 'optionRock') {
-            playerWin++;
-            winner = 'player';
+            winner = playerWinFunc();
         } else if (computer === 'optionScissors') {
-            computerWin++;
-            winner = 'computer';
+            winner = computerWinFunc();
         }
     }
     return winner;
+}
+
+function playerWinFunc() {
+    playerWin++;
+    return 'player'
+}
+
+function computerWinFunc() {
+    computerWin++;
+    return 'computer'
 }
 
 function returnWinnerOrDraw(computerPlay, playerPlay) {
@@ -144,9 +149,9 @@ function returnWinnerOrDraw(computerPlay, playerPlay) {
 function changeResultText(result) {
     if (result === 'computer') {
         resultText.innerText = computerWinText;
-    } if (result === 'player') {
+    } else if (result === 'player') {
         resultText.innerText = playerWinText;
-    } if (result === 'draw') {
+    } else {
         resultText.innerText = drawText;
     }
 }
@@ -175,8 +180,6 @@ function addAndRemoveAnimationClass() {
 }
 
 function addRoundLog(computerPlay, playerPlay, result) {
-    let computerIcon = whichIcon(computerPlay);
-    let playerIcon = whichIcon(playerPlay);
     let resultText = whichWinner(result);
     let roundLogContainer = document.querySelector('.round-log__container');
     let roundPlayDiv = document.createElement('div');
@@ -188,9 +191,9 @@ function addRoundLog(computerPlay, playerPlay, result) {
     roundPlayDiv.classList.add('round-log__play');
     spanRound.classList.add('round-log__round');
     spanWinner.classList.add('round-log__winner')
-    iconPlayer.classList.add('round-log__icon-player', 'fas', playerIcon);
+    iconPlayer = addIconClasses('player', iconPlayer, playerPlay);
     versusText.classList.add('round-log__versus');
-    iconComputer.classList.add('round-log__icon-computer', 'fas', computerIcon);
+    iconComputer = addIconClasses('computer', iconComputer, computerPlay);
     spanRound.innerText = round;
     spanWinner.innerText = resultText;
     versusText.innerText = 'vs';
@@ -202,12 +205,28 @@ function addRoundLog(computerPlay, playerPlay, result) {
     roundLogContainer.appendChild(roundPlayDiv);
 }
 
+function addIconClasses(which, element, play) {
+    let icon = whichIcon(play);
+    element.classList.add(`round-log__icon-${which}`, 'fas', icon);
+    if (which === 'player') {
+        element.style.transform = 'rotate(90deg)';
+        if (icon === scissors) {
+            element.style.transform = 'rotate(180deg)';
+        }
+    } else {
+        if (icon !== scissors) {
+            element.style.transform = 'rotate(-90deg)';
+        }
+    }
+    return element;
+}
+
 function whichIcon(play) {
     if (play === 'optionRock') {
         return rock;
-    } if (play === 'optionPaper') {
+    } else if (play === 'optionPaper') {
         return paper;
-    } if (play === 'optionScissors') {
+    } else {
         return scissors;
     }
 }
@@ -215,9 +234,22 @@ function whichIcon(play) {
 function whichWinner(result) {
     if (result === 'computer') {
         return 'Computador';
-    } if (result === 'player') {
+    } else if (result === 'player') {
         return 'Você';
-    } if (result === 'draw') {
+    } else {
         return 'Empatou';
     }
+}
+
+function blockButtonWithTime() {
+    blockButton();
+    setTimeout(unblockButton, 750);
+}
+
+function blockButton() {
+    buttonPlay.setAttribute('disabled', 'disabled');
+}
+
+function unblockButton() {
+    buttonPlay.removeAttribute('disabled');
 }
