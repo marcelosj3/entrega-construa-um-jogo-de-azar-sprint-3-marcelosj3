@@ -38,7 +38,7 @@ function startPlay() {
         addRoundLog(computerPlay, playerPlay, result);
         blockButtonWithTime();
     } else {
-
+        resultText.innerText = 'Por favor, selecione uma opção abaixo!';
     }
 }
 
